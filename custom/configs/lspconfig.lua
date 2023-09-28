@@ -5,8 +5,13 @@ local capabilities = config.capabilities
 
 local lspconfig = require("lspconfig")
 
+local my_on_attach = function (client, bufnr)
+    on_attach(client, bufnr)
+  end
+
+
 lspconfig.pylsp.setup({
-  on_attach = on_attach,
+  on_attach = my_on_attach,
   capabilities = capabilities,
   filetypes = {"python"},
   settings = {
